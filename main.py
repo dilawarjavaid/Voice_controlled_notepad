@@ -68,3 +68,18 @@ class VoiceNotepad(QWidget):
         self.text_edit.append(f"Error: {error_message}")
         self.listen_button.setText("Start Listening")
         self.listen_button.setEnabled(True)
+
+    def save_to_file(self):
+        file_path, _ = QFileDialog.getSaveFileName(self, "Save File", "", "Text Files (*.txt)")
+        if file_path:
+            with open(file_path, "w") as file:
+                file.write(self.text_edit.toPlainText())
+
+
+
+# Run the Application
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    notepad = VoiceNotepad()
+    notepad.show()
+    sys.exit(app.exec())
