@@ -19,3 +19,14 @@ class SpeechRecognitionThread(QThread):
                 self.error.emit("Sorry, could not understand the audio.")
             except sr.RequestError as e:
                 self.error.emit(f"Could not request results, error: {e}")
+
+
+
+
+# Main Application
+class VoiceNotepad(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Voice-Controlled Notepad")
+        self.setGeometry(300, 200, 600, 400)
+
