@@ -54,3 +54,7 @@ class VoiceNotepad(QWidget):
         self.speech_thread.result.connect(self.add_text)
         self.speech_thread.error.connect(self.show_error)
 
+    def start_listening(self):
+        self.listen_button.setText("Listening...")
+        self.listen_button.setEnabled(False)
+        self.speech_thread.start()
